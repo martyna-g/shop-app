@@ -7,8 +7,9 @@ public class Product {
     private int id;
     private String name;
     private BigDecimal price;
-    public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
     private Rating rating;
+
+    public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 
     public Product(int id, String name, BigDecimal price, Rating rating) {
         this.id = id;
@@ -19,6 +20,10 @@ public class Product {
 
     public Product(int id, String name, BigDecimal price) {
         this(id, name, price, Rating.NOT_RATED);
+    }
+
+    public Product() {
+        this(0, "no name", BigDecimal.ZERO);
     }
 
     public int getId() {
