@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import static java.math.RoundingMode.HALF_UP;
 
-public class Product {
+public abstract class Product {
     private int id;
     private String name;
     private BigDecimal price;
@@ -48,9 +48,7 @@ public class Product {
         return rating;
     }
 
-    public Product applyRating(Rating newRating) {
-        return new Product(id, name, price, newRating);
-    }
+    public abstract Product applyRating(Rating newRating);
 
     @Override
     public String toString() {
