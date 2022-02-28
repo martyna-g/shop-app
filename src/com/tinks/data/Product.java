@@ -1,6 +1,7 @@
 package com.tinks.data;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import static java.math.RoundingMode.HALF_UP;
@@ -46,6 +47,10 @@ public abstract class Product {
 
     public Rating getRating() {
         return rating;
+    }
+
+    public LocalDate getBestBefore() {
+        return LocalDate.now();
     }
 
     public abstract Product applyRating(Rating newRating);
