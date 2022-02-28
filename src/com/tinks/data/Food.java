@@ -15,4 +15,14 @@ public class Food extends Product {
     public LocalDate getBestBefore() {
         return bestBefore;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", " + bestBefore ;
+    }
+
+    @Override
+    public BigDecimal getDiscount() {
+        return (bestBefore.isEqual(LocalDate.now())) ? super.getDiscount() : BigDecimal.ZERO;
+    }
 }
