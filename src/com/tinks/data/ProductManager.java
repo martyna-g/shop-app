@@ -63,14 +63,19 @@ public class ProductManager {
                 product.getRating().getStars(),
                 dateFormat.format(product.getBestBefore())));
         txt.append('\n');
-        if (review != null) {
+        for (Review review : reviews) {
+            if (review == null) {
+                break;
+            }
             txt.append(MessageFormat.format(resources.getString("review"),
                     review.getRating().getStars(),
                     review.getComments()));
-        } else {
-            txt.append(resources.getString("no.reviews"));
+            txt.append('\n');
         }
-        txt.append('\n');
+        if (reviews[0] == null) {
+            txt.append(resources.getString("no.reviews"));
+            txt.append('\n');
+        }
         System.out.println(txt);
     }
 }
