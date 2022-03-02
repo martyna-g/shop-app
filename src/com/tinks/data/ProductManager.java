@@ -51,7 +51,7 @@ public class ProductManager {
             sum += reviews[i].getRating().ordinal();
             i++;
         }
-        this.product = product.applyRating(rating);
+        this.product = product.applyRating(Rateable.convert(Math.round((float)sum/i)));
         return this.product;
     }
 
