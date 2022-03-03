@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import static java.math.RoundingMode.HALF_UP;
 
-public abstract class Product implements Rateable {
+public abstract class Product implements Rateable<Product> {
     private int id;
     private String name;
     private BigDecimal price;
@@ -25,6 +25,10 @@ public abstract class Product implements Rateable {
         this(id, name, price, Rating.NOT_RATED);
     }
 
+    public LocalDate getBestBefore() {
+        return LocalDate.now();
+    }
+
     public int getId() {
         return id;
     }
@@ -41,12 +45,9 @@ public abstract class Product implements Rateable {
         return price.multiply(DISCOUNT_RATE).setScale(2, HALF_UP);
     }
 
+    @Override
     public Rating getRating() {
         return rating;
-    }
-
-    public LocalDate getBestBefore() {
-        return LocalDate.now();
     }
 
     @Override
@@ -68,7 +69,7 @@ public abstract class Product implements Rateable {
         }
         if (obj instanceof Product) {
             final Product other = (Product) obj;
-            return this.id == other.id && Objects.equals(this.name, other.name);
+            return this.id == other.id;
         }
         return false;
     }
