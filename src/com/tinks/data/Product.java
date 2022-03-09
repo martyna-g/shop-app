@@ -1,12 +1,13 @@
 package com.tinks.data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
 import static java.math.RoundingMode.HALF_UP;
 
-public abstract class Product implements Rateable<Product> {
+public abstract class Product implements Rateable<Product>, Serializable {
     private int id;
     private String name;
     private BigDecimal price;
