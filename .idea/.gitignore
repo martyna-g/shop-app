@@ -7,6 +7,9 @@
 # Log file
 *.log
 
+# IntelliJ
+out/
+
 # BlueJ files
 *.ctxt
 
